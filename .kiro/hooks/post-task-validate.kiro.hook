@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Post-Task Validation",
+  "description": "After a spec task is completed, runs TypeScript type checking and Vitest to validate code syntax and framework compliance",
+  "version": "1",
+  "when": {
+    "type": "postTaskExecution"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "npx tsc --noEmit 2>&1; npx vitest run --reporter=verbose 2>&1 || true",
+    "timeout": 120
+  },
+  "workspaceFolderName": "app_vibecodeada",
+  "shortName": "post-task-validate"
+}

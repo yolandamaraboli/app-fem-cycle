@@ -1,0 +1,199 @@
+/* Inter font from Google Fonts — using layer import for correct ordering */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap') layer(base);
+
+@import "tailwindcss";
+
+/* ============================================================
+   Design System Tokens — Tailwind CSS v4 @theme configuration
+   ============================================================ */
+
+@theme {
+  /* ─── Colors ─── */
+  --color-primary: #EE6B8A;
+  --color-primary-hover: #E05575;
+  --color-primary-light: #FDE8EF;
+  --color-primary-ring: rgba(238, 107, 138, 0.3);
+
+  --color-coral: #FA6364;
+  --color-amber: #FFB04C;
+  --color-mint: #4ECDC4;
+  --color-lavender: #9B7ED8;
+  --color-teal: #2DB4C4;
+
+  --color-bg: #F8F9FC;
+  --color-card: #FFFFFF;
+  --color-card-alt: #F0F2F8;
+  --color-hover-row: #F0F1F5;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  --color-text-primary: #1A1D26;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  --color-text-on-primary: #FFFFFF;
+
+  --color-border: #E5E7EB;
+  --color-border-card: #E2E4E9;
+
+  /* ─── Typography ─── */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --font-size-caption: 0.6875rem;
+  --font-size-label: 0.75rem;
+  --font-size-body-sm: 0.8125rem;
+  --font-size-body: 0.9375rem;
+  --font-size-h3: 1.125rem;
+  --font-size-h2: 1.375rem;
+  --font-size-h1: 1.75rem;
+  --font-size-number-md: 2rem;
+  --font-size-number-lg: 3rem;
+
+  --line-height-caption: 0.875rem;
+  --line-height-label: 1rem;
+  --line-height-body-sm: 1.125rem;
+  --line-height-body: 1.375rem;
+  --line-height-h3: 1.5rem;
+  --line-height-h2: 1.75rem;
+  --line-height-h1: 2.25rem;
+  --line-height-number-md: 2.5rem;
+  --line-height-number-lg: 3.5rem;
+
+  /* ─── Border Radius ─── */
+  --radius-card: 16px;
+  --radius-modal: 20px;
+  --radius-button: 12px;
+  --radius-input: 10px;
+  --radius-cell: 8px;
+  --radius-pill: 9999px;
+
+  /* ─── Shadows ─── */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-button-primary: 0 1px 3px rgba(238, 107, 138, 0.3);
+  --shadow-button-primary-hover: 0 4px 12px rgba(238, 107, 138, 0.35);
+
+  /* ─── Spacing (multiples of 4) ─── */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* ─── Transitions ─── */
+  --transition-fast: 0.15s ease;
+  --transition-modal: 0.25s ease;
+  --transition-view: 0.35s ease;
+
+  /* ─── Layout ─── */
+  --width-sidebar: 280px;
+  --width-content-max: 1200px;
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography presets */
+  h1 {
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  /* Focus visible ring — accessible focus indicator */
+  *:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-input);
+  }
+}
+
+/* ============================================================
+   Utility Classes
+   ============================================================ */
+
+@layer utilities {
+  /* Typography utilities */
+  .text-body {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    font-weight: 400;
+  }
+
+  .text-body-sm {
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
+    font-weight: 400;
+  }
+
+  .text-label {
+    font-size: var(--font-size-label);
+    line-height: var(--line-height-label);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .text-caption {
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+    font-weight: 400;
+  }
+
+  .text-number-lg {
+    font-size: var(--font-size-number-lg);
+    line-height: var(--line-height-number-lg);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-number-md {
+    font-size: var(--font-size-number-md);
+    line-height: var(--line-height-number-md);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Transition utilities */
+  .transition-fast {
+    transition: all var(--transition-fast);
+  }
+
+  .transition-modal {
+    transition: all var(--transition-modal);
+  }
+
+  .transition-view {
+    transition: all var(--transition-view);
+  }
+}

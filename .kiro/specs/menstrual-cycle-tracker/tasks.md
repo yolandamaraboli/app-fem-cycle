@@ -6,8 +6,8 @@ Implementation of a menstrual cycle tracking PWA, 100% frontend, with React 19, 
 
 ## Tasks
 
-- [-] 1. Project setup and base structure
-  - [-] 1.1 Initialize Vite project with React + TypeScript and configure dependencies
+- [x] 1. Project setup and base structure
+  - [x] 1.1 Initialize Vite project with React + TypeScript and configure dependencies
     - Create project with `npm create vite@latest` using template `react-ts`
     - Install dependencies: `react-router-dom@^7`, `zustand@^5`, `date-fns@^4`, `recharts@^2`
     - Install devDependencies: `tailwindcss@^4`, `@tailwindcss/vite@^4`, `vite-plugin-pwa@^0.21`, `vitest`, `@testing-library/react`, `@testing-library/jest-dom`, `jsdom`, `fast-check`
@@ -16,12 +16,12 @@ Implementation of a menstrual cycle tracking PWA, 100% frontend, with React 19, 
     - Configure `tsconfig.json` with strict mode and paths
     - _Requirements: 8.1, 8.3, 8.4_
 
-  - [~] 1.2 Create folder structure and define base types (`src/types/index.ts`)
+  - [x] 1.2 Create folder structure and define base types (`src/types/index.ts`)
     - Create folders: `src/pages/`, `src/components/layout/`, `src/components/calendar/`, `src/components/forms/`, `src/components/charts/`, `src/components/dashboard/`, `src/components/shared/`, `src/store/`, `src/lib/`, `src/hooks/`, `src/lib/__tests__/`
     - Implement all interfaces and types from the design: `Cycle`, `CyclePhases`, `DateRange`, `SymptomLog`, `PhysicalSymptoms`, `EmotionalSymptoms`, `HormonalSymptoms`, `FlowLevel`, `MucusType`, `AppSettings`, `Recommendation`, `PhaseSummary`, `PhaseData`, `ValidationResult`, `ImportResult`
     - _Requirements: 1.1, 1.4, 1.5, 1.6, 1.8, 1.9, 2.2, 9.1_
 
-  - [~] 1.3 Configure Tailwind CSS v4 with the design system (colors, typography, spacing)
+  - [x] 1.3 Configure Tailwind CSS v4 with the design system (colors, typography, spacing)
     - Configure color tokens: primary pink (#EE6B8A), coral (#FA6364), amber (#FFB04C), mint green (#4ECDC4), lavender (#9B7ED8), backgrounds and text
     - Configure Inter typography with the defined scale (H1-H3, body, labels, numbers)
     - Configure border-radius, shadows, and transitions from the design system
