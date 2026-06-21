@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import * as fc from 'fast-check';
-import { addDays, parseISO, differenceInDays } from 'date-fns';
+import { addDays, parseISO } from 'date-fns';
 import { generatePhaseSummary, hasEnoughDataForSummary } from '../symptoms';
 import { getRecommendations } from '../recommendations';
 import type {
@@ -49,22 +49,6 @@ const emotionalSymptomsArb = fc.record({
   energy: fc.integer({ min: 0, max: 5 }),
 });
 
-const symptomLogArb = (date: string): fc.Arbitrary<SymptomLog> =>
-  fc.record({
-    physical: physicalSymptomsArb,
-    emotional: emotionalSymptomsArb,
-    hormonal: fc.record({
-      flow: fc.constantFrom('none' as const, 'light' as const, 'medium' as const, 'heavy' as const, 'spotting' as const),
-      cervicalMucus: fc.constantFrom('dry' as const, 'sticky' as const, 'creamy' as const, 'eggWhite' as const, 'watery' as const),
-    }),
-    libido: fc.integer({ min: 0, max: 5 }),
-    appetite: fc.integer({ min: 0, max: 5 }),
-    sleep: fc.integer({ min: 0, max: 48 }).map((n) => n * 0.5),
-    weight: fc.option(fc.double({ min: 30.0, max: 300.0, noNaN: true }), { nil: null }),
-    temperature: fc.option(fc.double({ min: 35.0, max: 42.0, noNaN: true }), { nil: null }),
-    notes: fc.string({ maxLength: 500 }),
-    tags: fc.array(fc.string({ minLength: 1, maxLength: 30 }), { maxLength: 10 }),
-  }).map((log) => ({ ...log, date }));
 
 /** Build CyclePhases from a start date and config */
 function buildPhases(
@@ -101,21 +85,6 @@ function buildPhases(
       end: lutealEnd.toISOString().split('T')[0],
     },
   };
-}
-
-/** Generate a subset of day indices within cycle to create logs */
-function logsForCycleArb(startDate: string, cycleLength: number) {
-  return fc
-    .subarray(
-      Array.from({ length: cycleLength }, (_, i) => i),
-      { minLength: 0, maxLength: cycleLength }
-    )
-    .chain((dayIndices) => {
-      const dates = dayIndices.map(
-        (i) => addDays(parseISO(startDate), i).toISOString().split('T')[0]
-      );
-      return fc.tuple(...dates.map((d) => symptomLogArb(d)));
-    });
 }
 
 const PHYSICAL_KEYS: (keyof PhysicalSymptoms)[] = [

@@ -2,7 +2,6 @@ import { differenceInDays, parseISO, format } from 'date-fns';
 import { useCycleStore } from '../store/useCycleStore';
 import { getCurrentPhase } from '../lib/cycle';
 import { getPhaseColor } from '../lib/storage';
-import type { CyclePhases } from '../types';
 
 interface UseCurrentPhaseResult {
   phase: 'menstrual' | 'follicular' | 'ovulation' | 'luteal' | null;

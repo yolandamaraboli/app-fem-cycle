@@ -6,7 +6,7 @@ import { useSymptomStore } from '../../store/useSymptomStore';
 import en from '../../i18n/en';
 import es from '../../i18n/es';
 import type { Translations } from '../../i18n/index';
-import type { Cycle, SymptomLog, FlowLevel, MucusType } from '../../types';
+import type { FlowLevel, MucusType } from '../../types';
 
 // Feature: menstrual-cycle-tracker, Property 16: Language switching preserves app state
 // For any valid application state (cycles, symptoms, settings) and any supported locale

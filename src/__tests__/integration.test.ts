@@ -7,7 +7,10 @@
  * 2. Export/import data round-trip
  * 3. PWA: valid manifest config and service worker setup
  */
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { readFileSync, existsSync } from 'node:fs';
+import { resolve, join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { useSymptomStore } from '../store/useSymptomStore';
 import { useCycleStore } from '../store/useCycleStore';
 import { generatePhaseSummary } from '../lib/symptoms';
@@ -281,12 +284,13 @@ describe('Integration: Export/Import data', () => {
 // PWA Test: manifest and service worker config
 // Validates: Requirements 8.2, 8.3
 // =============================================
+
+const __testDir = dirname(fileURLToPath(import.meta.url));
+
 describe('Integration: PWA configuration', () => {
-  it('should have VitePWA plugin configured in vite.config.ts with required manifest fields', async () => {
-    const fs = await import('fs');
-    const path = await import('path');
-    const configContent = fs.readFileSync(
-      path.resolve(__dirname, '../../vite.config.ts'),
+  it('should have VitePWA plugin configured in vite.config.ts with required manifest fields', () => {
+    const configContent = readFileSync(
+      resolve(__testDir, '../../vite.config.ts'),
       'utf-8'
     );
 
@@ -308,11 +312,9 @@ describe('Integration: PWA configuration', () => {
     expect(configContent).toContain("purpose: 'maskable'");
   });
 
-  it('should have VitePWA configured with NetworkFirst strategy for service worker', async () => {
-    const fs = await import('fs');
-    const path = await import('path');
-    const configContent = fs.readFileSync(
-      path.resolve(__dirname, '../../vite.config.ts'),
+  it('should have VitePWA configured with NetworkFirst strategy for service worker', () => {
+    const configContent = readFileSync(
+      resolve(__testDir, '../../vite.config.ts'),
       'utf-8'
     );
 
@@ -322,23 +324,18 @@ describe('Integration: PWA configuration', () => {
     expect(configContent).toContain('globPatterns');
   });
 
-  it('should have required PWA icon files in public directory', async () => {
-    const fs = await import('fs');
-    const path = await import('path');
-    const publicDir = path.resolve(__dirname, '../../public');
+  it('should have required PWA icon files in public directory', () => {
+    const publicDir = resolve(__testDir, '../../public');
 
     // Check required icon files exist
-    expect(fs.existsSync(path.join(publicDir, 'icon.svg'))).toBe(true);
-    expect(fs.existsSync(path.join(publicDir, 'pwa-192x192.svg'))).toBe(true);
-    expect(fs.existsSync(path.join(publicDir, 'pwa-512x512.svg'))).toBe(true);
+    expect(existsSync(join(publicDir, 'icon.svg'))).toBe(true);
+    expect(existsSync(join(publicDir, 'pwa-192x192.svg'))).toBe(true);
+    expect(existsSync(join(publicDir, 'pwa-512x512.svg'))).toBe(true);
   });
 
-  it('should have icon.svg as valid SVG content', async () => {
-    const fs = await import('fs');
-    const path = await import('path');
-
-    const iconPath = path.join(path.resolve(__dirname, '../../public'), 'icon.svg');
-    const content = fs.readFileSync(iconPath, 'utf-8');
+  it('should have icon.svg as valid SVG content', () => {
+    const iconPath = join(resolve(__testDir, '../../public'), 'icon.svg');
+    const content = readFileSync(iconPath, 'utf-8');
 
     // Valid SVG starts with <svg or has XML declaration followed by <svg
     expect(content).toMatch(/<svg[\s>]/);

@@ -32,7 +32,6 @@ export function Calendar() {
   const { isMobile } = useResponsive();
   const { t, locale } = useTranslation();
   const firstDayOfWeek = useSettingsStore((s) => s.settings.firstDayOfWeek);
-  const getActiveCycle = useCycleStore((s) => s.getActiveCycle);
   const cycles = useCycleStore((s) => s.cycles);
   const logs = useSymptomStore((s) => s.logs);
 
@@ -132,7 +131,6 @@ export function Calendar() {
     [navigate]
   );
 
-  const activeCycle = getActiveCycle();
   const hasCycleData = cycles.length > 0;
 
   return (
