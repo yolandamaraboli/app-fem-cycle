@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- Background circle -->
+  <circle cx="96" cy="96" r="96" fill="#EE6B8A"/>
+  <!-- Inner white circle for contrast -->
+  <circle cx="96" cy="96" r="75" fill="#FFFFFF" opacity="0.95"/>
+  <!-- Calendar body -->
+  <rect x="58" y="66" width="76" height="68" rx="6" fill="#EE6B8A"/>
+  <!-- Calendar top bar -->
+  <rect x="58" y="58" width="76" height="16" rx="6" fill="#D4507A"/>
+  <!-- Calendar hooks -->
+  <rect x="73" y="54" width="5" height="11" rx="2.5" fill="#FFFFFF"/>
+  <rect x="114" y="54" width="5" height="11" rx="2.5" fill="#FFFFFF"/>
+  <!-- Calendar grid dots -->
+  <circle cx="73" cy="85" r="3" fill="#FFFFFF"/>
+  <circle cx="87" cy="85" r="3" fill="#FFFFFF"/>
+  <circle cx="101" cy="85" r="3" fill="#FFFFFF"/>
+  <circle cx="115" cy="85" r="3" fill="#FFFFFF"/>
+  <circle cx="73" cy="100" r="3" fill="#FFFFFF"/>
+  <circle cx="87" cy="100" r="3" fill="#FFFFFF"/>
+  <circle cx="101" cy="100" r="3" fill="#4ECDC4"/>
+  <circle cx="115" cy="100" r="3" fill="#FFFFFF"/>
+  <circle cx="73" cy="115" r="3" fill="#FFFFFF"/>
+  <circle cx="87" cy="115" r="3" fill="#FFFFFF"/>
+  <circle cx="101" cy="115" r="3" fill="#FFFFFF"/>
+  <circle cx="115" cy="115" r="3" fill="#FFFFFF"/>
+</svg>

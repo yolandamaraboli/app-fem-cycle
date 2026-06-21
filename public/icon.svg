@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#EE6B8A"/>
+  <!-- Inner white circle for contrast -->
+  <circle cx="256" cy="256" r="200" fill="#FFFFFF" opacity="0.95"/>
+  <!-- Calendar body -->
+  <rect x="156" y="176" width="200" height="180" rx="16" fill="#EE6B8A"/>
+  <!-- Calendar top bar -->
+  <rect x="156" y="156" width="200" height="40" rx="16" fill="#D4507A"/>
+  <!-- Calendar hooks -->
+  <rect x="196" y="144" width="12" height="28" rx="6" fill="#FFFFFF"/>
+  <rect x="304" y="144" width="12" height="28" rx="6" fill="#FFFFFF"/>
+  <!-- Calendar grid dots representing days -->
+  <circle cx="196" cy="226" r="8" fill="#FFFFFF"/>
+  <circle cx="232" cy="226" r="8" fill="#FFFFFF"/>
+  <circle cx="268" cy="226" r="8" fill="#FFFFFF"/>
+  <circle cx="304" cy="226" r="8" fill="#FFFFFF"/>
+  <circle cx="196" cy="266" r="8" fill="#FFFFFF"/>
+  <circle cx="232" cy="266" r="8" fill="#FFFFFF"/>
+  <circle cx="268" cy="266" r="8" fill="#4ECDC4"/>
+  <circle cx="304" cy="266" r="8" fill="#FFFFFF"/>
+  <circle cx="196" cy="306" r="8" fill="#FFFFFF"/>
+  <circle cx="232" cy="306" r="8" fill="#FFFFFF"/>
+  <circle cx="268" cy="306" r="8" fill="#FFFFFF"/>
+  <circle cx="304" cy="306" r="8" fill="#FFFFFF"/>
+  <!-- Cycle symbol (crescent) -->
+  <path d="M340 380 A40 40 0 1 1 340 300 A28 28 0 1 0 340 380Z" fill="#9B7ED8" opacity="0.8"/>
+</svg>
